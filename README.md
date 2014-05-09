@@ -2,6 +2,19 @@
 
 An example [Sinatra](http://www.sinatrarb.com/) json rest api app showing [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) support by setting the appropriate HTTP headers
 
+## Core Code
+
+Set appropriate headers in before [filter block](http://www.sinatrarb.com/intro.html#Filters)
+
+```ruby
+before do
+   content_type :json    
+   headers 'Access-Control-Allow-Origin' => '*', 
+            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST', 'PUT'],
+            'Access-Control-Allow-Headers' => 'Content-Type'   
+end
+```
+
 ## Running
 
 	bundle install
